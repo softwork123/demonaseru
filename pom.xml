@@ -48,7 +48,7 @@
         <cloudHubDeployment> 
           <muleVersion>${app.runtime}</muleVersion> 
           <username>gouse7866</username> 
-          <password>Gousekgm1</password> 
+          <password>Gousekgm11</password> 
           <environment>Sandbox</environment> 
           <!-- <region>eu-central-1</region>  -->
           <objectStoreV2>true</objectStoreV2>
