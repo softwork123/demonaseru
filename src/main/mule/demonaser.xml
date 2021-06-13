@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd"></mule>
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="fa801020-3553-49a8-8968-c201c3c5944e" >
+		<http:listener-connection host="0.0.0.0" port="8086" />
+	</http:listener-config>
+	<flow name="demonaserFlow" doc:id="54d9022e-b3b8-4d37-8a8e-afcf2eb9269c" >
+		<http:listener doc:name="Listener" doc:id="4ab6a5c5-bf30-4acd-a04d-2ba4d5137ace" config-ref="HTTP_Listener_config" path="/welcom"/>
+		<logger level="INFO" doc:name="Logger" doc:id="f6efcd80-e489-49e2-bd0f-48d52d877383" />
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="d2e2ec11-3665-42bd-82b7-df528948524f" />
+	</flow>
+</mule>
